@@ -5,7 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -63,7 +63,7 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
@@ -183,31 +183,6 @@ require('lazy').setup({
     -- Optional dependencies
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-  },
-
-  -- Theme
-  {
-    'Shatur/neovim-ayu',
-    priority = 1000,
-    config = function()
-      require('ayu').setup {
-        mirage = false,
-        terminal = true,
-        overrides = {
-          LineNr = { fg = '#888888' }, -- Regular line numbers
-          Normal = { bg = '#000000' },
-          NormalFloat = { bg = '#000000' },
-          SignColumn = { bg = '#000000' },
-          NormalNC = { bg = '#000000' }, -- Non-current windows
-          StatusLine = { bg = '#000000' },
-          StatusLineNC = { bg = '#000000' },
-          VertSplit = { bg = '#000000' },
-        },
-      }
-      vim.cmd.colorscheme 'ayu'
-
-      vim.opt.fillchars = { eob = ' ' }
-    end,
   },
 
   -- NOTE: Plugins can also be added by using a table,
@@ -910,7 +885,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
